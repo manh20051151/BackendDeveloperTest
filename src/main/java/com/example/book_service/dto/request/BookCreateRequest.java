@@ -8,19 +8,23 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 public class BookCreateRequest {
+    // Kiểm tra không cho phép trường 'title' có giá trị null
     @NotNull(message = "title cannot be null")
+    // kiểm tra chiều dài của 'title' phải ít nhất 3 ký tự
     @Size(min = 3, message = "title must be at least 3 characters")
     private String title;
     @NotNull(message = "author cannot be null")
     @Size(min = 3, message = "author must be at least 3 characters")
     private String author;
-    @NotNull(message = "publishedDate cannot be null")
 
+    // kiểm tra không cho phép trường 'publishedDate' có giá trị null
+    @NotNull(message = "publishedDate cannot be null")
     private Date publishedDate;
     @NotNull(message = "isbn cannot be null")
     @Size(min = 3, message = "isbn must be at least 3 characters")
     private String isbn;
     @NotNull(message = "price cannot be null")
+    // kiểm tra giá trị của 'price' phải lớn hơn 0
     @Positive(message = "price must be greater than 0")
     private BigDecimal price;
 
